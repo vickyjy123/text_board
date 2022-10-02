@@ -1,8 +1,12 @@
 package infra;
 
+
+import controller.ArticleController;
 import controller.MemberController;
 import controller.SystemController;
+import repsitory.ArticleRepository;
 import repsitory.MemberRepository;
+import service.ArticleService;
 import service.MemberService;
 
 import java.util.Scanner;
@@ -23,6 +27,14 @@ import java.util.Scanner;
     public  static MemberController memberController;
 
 
+
+    public static ArticleRepository articleRepository;
+    public static ArticleService articleService;
+    public static ArticleController articleController;
+
+
+
+
     static {
         sc=new Scanner(System.in);
         session =new Session();
@@ -32,5 +44,13 @@ import java.util.Scanner;
         memberController =new MemberController();
 
 
+        articleRepository= new ArticleRepository();
+        articleService = new ArticleService();
+        articleController =new ArticleController();
     }
+
+
+
+
+
 }

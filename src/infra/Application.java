@@ -57,6 +57,8 @@ public class Application {
                 return Container.systemcontroller;
             case "members":
                 return Container.memberController;
+            case "articles":
+                return Container.articleController;
             default:
                 return null;
 
