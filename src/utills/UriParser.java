@@ -26,10 +26,19 @@ public class UriParser {
      public UriParser(String uri){
          this.URI =uri;
          parser();
-
      }
 
-     private void parser(){
+
+
+     //  /members/join
+
+
+    private void parser(){
+         if(!this.URI.startsWith("/")){
+             this.isValid =false;
+             return;
+         }
+
          String [] uriSplit = this.URI.split("\\?",2);
          if(uriSplit.length==2){
              String paraBody =uriSplit[1];
@@ -37,7 +46,14 @@ public class UriParser {
              parameter.put(splitParam[0] , splitParam[1]);
          }
 
+
+
          String[] uriBodySplit = uriSplit[0].split("/");
+
+         if(uriBodySplit.length != 3){
+             this.isValid =false;
+             return;
+        }
          //도메인 /members/modify?
          this.controllerCode=uriBodySplit[1];
          this.target = uriBodySplit[2];
@@ -62,6 +78,16 @@ public class UriParser {
     public Map<String, Object> getParameter() {
         return parameter;
     }
+
+
+    public String getURI(){
+         return URI;
+    }
+
 }
+
+
+
+
 
 

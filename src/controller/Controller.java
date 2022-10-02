@@ -1,4 +1,4 @@
-package contriller;
+package controller;
 
 import infra.Request;
 
